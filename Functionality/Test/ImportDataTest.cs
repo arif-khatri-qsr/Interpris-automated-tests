@@ -12,6 +12,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+
+
 namespace Automation.UI.Functionality.Test
 {
     /// <summary>
@@ -49,6 +51,38 @@ namespace Automation.UI.Functionality.Test
             dsPage.ButtonCancel.WaitAndClick();
             
             TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0100);
+        }
+
+
+
+
+        [Test]
+        [TestID(TestID.TC_ID_0103), StoryID(StoryID.SR_ID_002)]
+        [Priority(PriorityLevel.High)]
+        [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0100 })]
+        public void TC_IMPORT_duplicatesource(Dictionary<string, string> Data)
+        {
+            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0050);
+
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
+            //HeaderSubPage headerSubPage = new HeaderSubPage(Driver, InterprisBaseURL);
+            NavigatorPage navigatorPage = new NavigatorPage(Driver, InterprisBaseURL);
+            DataSourcesPage dsPage = new DataSourcesPage(Driver, InterprisBaseURL);
+
+            // Verify sign in successfully with the activated account
+            dsPage.LogIn(Data["username"], Data["password"]);
+            navigatorPage.ActivateMenu(NavigatorPage.MENU_DATA_SOURCES);
+            Assert.IsTrue(dsPage.IsPageVisible());
+            TestContext.Out.WriteLine("Click Import ");
+            dsPage.UploadOneFile(Browser, Data["test_file_folder"], Data["test_file_name"]);
+            dsPage.WaitForElementVisible(dsPage.DivImportedData);
+
+            //Enter an existing datasource name and verify alert message
+            dsPage.InputdatasourceName.SendKeys("meals");
+            dsPage.ButtonImport.WaitAndClick();
+            ThreadUtils.SleepLongTime();
+            Assert.IsTrue(dsPage.ErrMessage.IsVisible,"Alert is not displayed");
+           TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0100);
         }
         #endregion
 

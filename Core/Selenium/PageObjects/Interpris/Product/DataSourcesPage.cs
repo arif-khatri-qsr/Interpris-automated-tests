@@ -7,6 +7,7 @@ using Automation.UI.Core.Selenium.PageObjects.Interpris.Platform;
 using Automation.UI.Core.TestBase;
 using Automation.UI.Core.DesktopAutomation.OpenFileDialog;
 
+
 namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
 {
     /// <summary>
@@ -28,6 +29,9 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
         private readonly string btnCancel = "//button[@data-tut=\"import-click-tour\"]/../button";
         private readonly string btnImport = "//button[@data-tut=\"import-click-tour\"]";
         private readonly string divImportedData = "//div[@data-tut=\"dropdown-tour\"]";
+        private readonly string dataSourceName = "//input[@placeholder='Enter data source name']";
+       private readonly string errMessaage = "//div[@class =\"Toastify__toast-container Toastify__toast-container--bottom-right\"]";
+      
 
         #endregion
 
@@ -43,6 +47,8 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
         public BaseWebObject BtnUpload => FindWebElement(btnUpload, true);
         public BaseWebObject ButtonCancel => FindWebElement(btnCancel, true);
         public BaseWebObject ButtonImport => FindWebElement(btnImport, true);
+        public BaseWebObject InputdatasourceName => FindWebElement(dataSourceName, true);
+        public BaseWebObject ErrMessage => FindWebElement(errMessaage, true);
         #endregion
 
         #region Methods
@@ -105,6 +111,10 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
 
             ThreadUtils.SleepShortTime();
         }
+
+
+        
+
         #endregion
     }
 }
