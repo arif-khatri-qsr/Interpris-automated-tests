@@ -3,3 +3,4 @@ obj
 packages
 TestReport
 .vs
+/Functionality/Test/Theme.cs

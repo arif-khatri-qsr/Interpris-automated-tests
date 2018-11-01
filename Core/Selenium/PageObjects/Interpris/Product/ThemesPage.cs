@@ -29,6 +29,7 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
         /// Check if the DataSources page is active & displayed
         /// </summary>
         /// <returns>True if the page displayed; otherwise, False</returns>
+        /// 
         public bool IsPageVisible()
         {
             return DivPageName.IsVisible;

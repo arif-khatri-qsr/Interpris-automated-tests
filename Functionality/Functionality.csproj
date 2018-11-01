@@ -72,8 +72,10 @@
     <Compile Include="Test\PrivacyPolicyTest.cs" />
     <Compile Include="Test\ResetPasswordTest.cs" />
     <Compile Include="Test\ImportDataTest.cs" />
+    <Compile Include="Test\Theme.cs" />
     <Compile Include="Test\ViewsTest.cs" />
     <Compile Include="Test\SignInTest.cs" />
+    <Compile Include="Test\WebElement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

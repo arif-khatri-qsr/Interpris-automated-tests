@@ -14,6 +14,11 @@
         public const string TC_ID_0006 = "TC_ID_0006"; // UP2P-301
         #endregion
 
+        #region Sign In
+        public const string TC_ID_0011 = "TC_ID_0011"; // UP2P-272
+        public const string TC_ID_0012 = "TC_ID_0012"; // UP2P-273
+        #endregion
+
         #region Views
         public const string TC_ID_0050 = "TC_ID_0050"; // UP2P-408
         public const string TC_ID_0051 = "TC_ID_0051"; // UP2P-409
